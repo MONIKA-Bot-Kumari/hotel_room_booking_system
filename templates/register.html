@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guest Registration | Hotel Booking</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+    </div>
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7"/>
+                    <path d="M3 15h18"/>
+                    <path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/>
+                    <path d="M6 18v2"/>
+                    <path d="M18 18v2"/>
+                </svg>
+            </div>
+
+            <div>
+                <span class="brand-name">AURELIA</span>
+                <span class="brand-subtitle">HOTEL BOOKING</span>
+            </div>
+        </div>
+
+        <a href="#" class="top-login" id="login-link">
+            Sign in
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+            </svg>
+        </a>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- Left Section -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    YOUR STAY, ELEVATED
+                </span>
+
+                <h1>
+                    Stay somewhere
+                    <span>worth remembering.</span>
+                </h1>
+
+                <p>
+                    Create your account and unlock a simpler way
+                    to discover, request and manage your hotel stay.
+                </p>
+
+                <div class="feature-list">
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 10h16"/>
+                                <path d="M6 10V6h12v4"/>
+                                <path d="M4 10v8"/>
+                                <path d="M20 10v8"/>
+                                <path d="M4 14h16"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Comfort first</strong>
+                            <span>Find rooms designed around your stay.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="15" rx="2"/>
+                                <path d="M7 3v4"/>
+                                <path d="M17 3v4"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Simple booking</strong>
+                            <span>Manage your booking journey with ease.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <strong>Secure experience</strong>
+                            <span>Your account stays protected.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="decorative-ring ring-one"></div>
+            <div class="decorative-ring ring-two"></div>
+
+        </section>
+
+
+        <!-- Registration Card -->
+        <section class="register-section">
+
+            <div class="register-card">
+
+                <div class="card-header">
+
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <span class="card-label">GET STARTED</span>
+                        <h2>Registration</h2>
+                    </div>
+
+                </div>
+
+                <p class="subtitle">
+                    Create your account to book hotel rooms
+                </p>
+
+
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="message {{ category }}">
+                                <span class="message-icon">
+
+                                    {% if category == "error" %}
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="9"/>
+                                            <path d="M12 8v5"/>
+                                            <path d="M12 16h.01"/>
+                                        </svg>
+                                    {% else %}
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="9"/>
+                                            <path d="m8 12 3 3 5-6"/>
+                                        </svg>
+                                    {% endif %}
+
+                                </span>
+
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+
+                <!-- Registration Form -->
+                <form id="register-form"
+                      method="POST"
+                      action="{{ url_for('auth.register') }}">
+
+                    <!-- Name -->
+                    <div class="form-group">
+
+                        <label for="name">Name</label>
+
+                        <div class="input-wrapper">
+
+                            <svg class="input-icon"
+                                 viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 21a8 8 0 0 1 16 0"/>
+
+                            </svg>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                value="{{ request.form.get('name', '') }}"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label for="email">Email</label>
+
+                        <div class="input-wrapper">
+
+                            <svg class="input-icon"
+                                 viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                <path d="m3 7 9 6 9-6"/>
+
+                            </svg>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                value="{{ request.form.get('email', '') }}"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+
+                            <svg class="input-icon"
+                                 viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+
+                            </svg>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Phone -->
+                    <div class="form-group">
+
+                        <label for="phone_number">Phone Number</label>
+
+                        <div class="input-wrapper">
+
+                            <svg class="input-icon"
+                                 viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <rect x="6" y="2" width="12" height="20" rx="3"/>
+                                <path d="M10 5h4"/>
+                                <path d="M11 18h2"/>
+
+                            </svg>
+
+                            <input
+                                type="tel"
+                                id="phone_number"
+                                name="phone_number"
+                                placeholder="Enter your phone number"
+                                value="{{ request.form.get('phone_number', '') }}"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Register Button -->
+                    <button type="submit" class="btn-register">
+
+                        <span>Create Account</span>
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14"/>
+                            <path d="m13 6 6 6-6 6"/>
+                        </svg>
+
+                    </button>
+
+                </form>
+
+
+                <div class="login-text">
+                    Already have an account?
+                    <a href="#" id="login-link-bottom">Login here</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Bottom decoration -->
+    <div class="page-number">
+        <span>01</span>
+        <div></div>
+        <span>REGISTRATION</span>
+    </div>
+
+</body>
+</html>

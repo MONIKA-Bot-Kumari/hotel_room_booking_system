@@ -1,0 +1,1064 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+
+/* ================================
+   RESET
+================================ */
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+
+html {
+      scroll-behavior: smooth;
+}
+
+
+body {
+      min-height: 100vh;
+      font-family: "DM Sans", Arial, sans-serif;
+      background: #f6efe8;
+      color: #351b1d;
+      overflow-x: hidden;
+}
+
+
+/* ================================
+   ANIMATED BACKGROUND
+================================ */
+
+.background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+}
+
+.orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.45;
+      animation: floatOrb 12s ease-in-out infinite;
+}
+
+.orb-one {
+      width: 420px;
+      height: 420px;
+      background: #ead1c0;
+      top: -180px;
+      left: -130px;
+}
+
+.orb-two {
+      width: 350px;
+      height: 350px;
+      background: #d9b7a8;
+      right: -130px;
+      bottom: -120px;
+      animation-delay: -4s;
+}
+
+.orb-three {
+      width: 180px;
+      height: 180px;
+      background: #eadccf;
+      right: 28%;
+      top: 12%;
+      animation-delay: -7s;
+}
+
+
+@keyframes floatOrb {
+
+      0%,
+      100% {
+            transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+            transform: translate3d(20px, -25px, 0);
+      }
+}
+
+
+/* ================================
+   TOP BAR
+================================ */
+
+.topbar {
+      position: relative;
+      z-index: 5;
+
+      width: 100%;
+      padding: 28px 6vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+
+.brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+}
+
+
+.brand-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #6d2330;
+      border-radius: 12px;
+
+      box-shadow:
+            0 8px 20px rgba(80, 25, 32, 0.20);
+}
+
+
+.brand-icon svg {
+      width: 22px;
+      height: 22px;
+
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+}
+
+
+.brand-name {
+      display: block;
+
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 3px;
+
+      color: #501b23;
+}
+
+
+.brand-subtitle {
+      display: block;
+
+      margin-top: 2px;
+
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: #927b76;
+}
+
+
+.top-login {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 10px 17px;
+
+      color: #63212c;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      border: 1px solid rgba(99, 33, 44, 0.18);
+      border-radius: 50px;
+
+      transition:
+            background 0.25s ease,
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+
+.top-login svg {
+      width: 16px;
+      height: 16px;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      transition: transform 0.25s ease;
+}
+
+
+.top-login:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+
+      box-shadow:
+            0 8px 20px rgba(70, 30, 30, 0.10);
+}
+
+
+.top-login:hover svg {
+      transform: translateX(3px);
+}
+
+
+/* ================================
+   MAIN LAYOUT
+================================ */
+
+.main-container {
+      position: relative;
+      z-index: 2;
+
+      width: min(1180px, 88vw);
+      min-height: calc(100vh - 105px);
+
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      align-items: center;
+
+      gap: 70px;
+}
+
+
+/* ================================
+   LEFT WELCOME SECTION
+================================ */
+
+.welcome-section {
+      position: relative;
+
+      min-height: 560px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+}
+
+
+.welcome-content {
+      max-width: 570px;
+
+      animation: revealLeft 0.9s ease both;
+}
+
+
+.eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-bottom: 24px;
+
+      color: #8a5d58;
+
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+}
+
+
+.eyebrow-line {
+      width: 38px;
+      height: 1px;
+      background: #8a5d58;
+}
+
+
+.welcome-content h1 {
+      margin-bottom: 24px;
+
+      font-family: "Playfair Display", Georgia, serif;
+
+      font-size: clamp(48px, 5vw, 72px);
+      line-height: 1.02;
+      font-weight: 500;
+
+      color: #3d1d20;
+
+      letter-spacing: -2px;
+}
+
+
+.welcome-content h1 span {
+      display: block;
+      color: #762b37;
+}
+
+
+.welcome-content>p {
+      max-width: 470px;
+
+      margin-bottom: 40px;
+
+      color: #806d69;
+
+      font-size: 16px;
+      line-height: 1.8;
+}
+
+
+/* ================================
+   FEATURES
+================================ */
+
+.feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+}
+
+
+.feature {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+}
+
+
+.feature-icon {
+      width: 45px;
+      height: 45px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(118, 43, 55, 0.16);
+      border-radius: 13px;
+
+      background: rgba(255, 255, 255, 0.48);
+
+      transition:
+            transform 0.3s ease,
+            background 0.3s ease;
+}
+
+
+.feature:hover .feature-icon {
+      transform: translateY(-3px);
+      background: #ffffff;
+}
+
+
+.feature-icon svg {
+      width: 21px;
+      height: 21px;
+
+      fill: none;
+      stroke: #762b37;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+}
+
+
+.feature strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #4a2528;
+
+      font-size: 14px;
+      font-weight: 700;
+}
+
+
+.feature span {
+      color: #907b76;
+
+      font-size: 12px;
+}
+
+
+/* ================================
+   DECORATIVE RINGS
+================================ */
+
+.decorative-ring {
+      position: absolute;
+
+      border: 1px solid rgba(118, 43, 55, 0.10);
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      animation: slowRotate 18s linear infinite;
+}
+
+
+.ring-one {
+      width: 430px;
+      height: 430px;
+
+      right: -260px;
+      top: 10px;
+}
+
+
+.ring-two {
+      width: 300px;
+      height: 300px;
+
+      right: -190px;
+      top: 75px;
+
+      animation-direction: reverse;
+      animation-duration: 14s;
+}
+
+
+@keyframes slowRotate {
+      from {
+            transform: rotate(0deg);
+      }
+
+      to {
+            transform: rotate(360deg);
+      }
+}
+
+
+/* ================================
+   REGISTRATION SECTION
+================================ */
+
+.register-section {
+      display: flex;
+      justify-content: center;
+
+      animation: revealRight 0.9s ease 0.1s both;
+}
+
+
+.register-card {
+      width: 100%;
+      max-width: 470px;
+
+      padding: 38px;
+
+      background:
+            linear-gradient(145deg,
+                  rgba(255, 255, 255, 0.94),
+                  rgba(255, 250, 246, 0.86));
+
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+
+      box-shadow:
+            0 30px 70px rgba(73, 37, 34, 0.14),
+            0 5px 15px rgba(73, 37, 34, 0.05);
+
+      backdrop-filter: blur(18px);
+
+      transition:
+            transform 0.35s ease,
+            box-shadow 0.35s ease;
+}
+
+
+.register-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+            0 38px 80px rgba(73, 37, 34, 0.17),
+            0 8px 20px rgba(73, 37, 34, 0.06);
+}
+
+
+/* ================================
+   CARD HEADER
+================================ */
+
+.card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 10px;
+}
+
+
+.card-icon {
+      width: 48px;
+      height: 48px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #f3e0d5;
+
+      border-radius: 14px;
+}
+
+
+.card-icon svg {
+      width: 23px;
+      height: 23px;
+
+      fill: none;
+      stroke: #762b37;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+}
+
+
+.card-label {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #9a7770;
+
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+}
+
+
+.register-card h2 {
+      color: #421e22;
+
+      font-family: "Playfair Display", Georgia, serif;
+
+      font-size: 28px;
+      font-weight: 600;
+}
+
+
+.subtitle {
+      margin: 0 0 25px 62px;
+
+      color: #927d78;
+
+      font-size: 12px;
+      line-height: 1.5;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+.form-group {
+      text-align: left;
+      margin-bottom: 16px;
+}
+
+
+.form-group label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: #563034;
+
+      font-size: 12px;
+      font-weight: 700;
+}
+
+
+.input-wrapper {
+      position: relative;
+}
+
+
+.input-icon {
+      position: absolute;
+
+      left: 16px;
+      top: 50%;
+
+      width: 18px;
+      height: 18px;
+
+      transform: translateY(-50%);
+
+      fill: none;
+      stroke: #a48781;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      pointer-events: none;
+
+      transition:
+            stroke 0.25s ease,
+            transform 0.25s ease;
+}
+
+
+.form-group input {
+      width: 100%;
+      height: 50px;
+
+      padding: 0 16px 0 48px;
+
+      border: 1px solid #eadbd3;
+      border-radius: 12px;
+
+      outline: none;
+
+      background: rgba(250, 244, 239, 0.72);
+
+      color: #43282a;
+
+      font-family: inherit;
+      font-size: 13px;
+
+      transition:
+            border-color 0.25s ease,
+            background 0.25s ease,
+            box-shadow 0.25s ease,
+            transform 0.25s ease;
+}
+
+
+.form-group input::placeholder {
+      color: #b09b95;
+}
+
+
+.form-group input:hover {
+      background: #ffffff;
+}
+
+
+.form-group input:focus {
+      background: #ffffff;
+
+      border-color: #8b3a47;
+
+      box-shadow:
+            0 0 0 4px rgba(139, 58, 71, 0.08);
+
+      transform: translateY(-1px);
+}
+
+
+.input-wrapper:focus-within .input-icon {
+      stroke: #762b37;
+      transform: translateY(-50%) scale(1.08);
+}
+
+
+/* ================================
+   REGISTER BUTTON
+================================ */
+
+.btn-register {
+      position: relative;
+      overflow: hidden;
+
+      width: 100%;
+      height: 52px;
+
+      margin-top: 8px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      border: none;
+      border-radius: 13px;
+
+      background: #6f2532;
+
+      color: #ffffff;
+
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+
+      cursor: pointer;
+
+      box-shadow:
+            0 12px 25px rgba(111, 37, 50, 0.20);
+
+      transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background 0.25s ease;
+}
+
+
+.btn-register::before {
+      content: "";
+
+      position: absolute;
+
+      width: 0;
+      height: 0;
+
+      left: 50%;
+      top: 50%;
+
+      background: rgba(255, 255, 255, 0.10);
+
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%);
+
+      transition:
+            width 0.5s ease,
+            height 0.5s ease;
+}
+
+
+.btn-register:hover {
+      background: #5c1e29;
+
+      transform: translateY(-3px);
+
+      box-shadow:
+            0 17px 30px rgba(111, 37, 50, 0.25);
+}
+
+
+.btn-register:hover::before {
+      width: 350px;
+      height: 350px;
+}
+
+
+.btn-register:active {
+      transform: translateY(-1px);
+}
+
+
+.btn-register span,
+.btn-register svg {
+      position: relative;
+      z-index: 1;
+}
+
+
+.btn-register svg {
+      width: 17px;
+      height: 17px;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      transition: transform 0.25s ease;
+}
+
+
+.btn-register:hover svg {
+      transform: translateX(4px);
+}
+
+
+/* ================================
+   FLASH MESSAGE
+================================ */
+
+.message {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 11px 13px;
+
+      margin-bottom: 18px;
+
+      border-radius: 11px;
+
+      font-size: 12px;
+
+      animation: messageIn 0.35s ease both;
+}
+
+
+.message-icon {
+      display: flex;
+      flex-shrink: 0;
+}
+
+
+.message-icon svg {
+      width: 18px;
+      height: 18px;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+}
+
+
+.message.error {
+      background: #fff0ef;
+      color: #a33232;
+
+      border: 1px solid #f1cfcc;
+}
+
+
+.message.success {
+      background: #edf8f0;
+      color: #287243;
+
+      border: 1px solid #cce7d3;
+}
+
+
+@keyframes messageIn {
+      from {
+            opacity: 0;
+            transform: translateY(-8px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+
+/* ================================
+   LOGIN
+================================ */
+
+.login-text {
+      margin-top: 22px;
+
+      text-align: center;
+
+      color: #927d78;
+
+      font-size: 12px;
+}
+
+
+.login-text a {
+      color: #6f2532;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition: color 0.2s ease;
+}
+
+
+.login-text a:hover {
+      color: #a14350;
+      text-decoration: underline;
+}
+
+
+/* ================================
+   PAGE NUMBER
+================================ */
+
+.page-number {
+      position: fixed;
+
+      bottom: 25px;
+      left: 6vw;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: #aa918b;
+
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
+
+      z-index: 5;
+}
+
+
+.page-number div {
+      width: 35px;
+      height: 1px;
+
+      background: #c7afa8;
+}
+
+
+.page-number span:first-child {
+      color: #6f2532;
+      font-size: 11px;
+}
+
+
+/* ================================
+   ENTRANCE ANIMATIONS
+================================ */
+
+@keyframes revealLeft {
+
+      from {
+            opacity: 0;
+            transform: translateX(-35px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+
+@keyframes revealRight {
+
+      from {
+            opacity: 0;
+            transform: translateX(35px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 950px) {
+
+      .main-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+
+            padding: 30px 0 80px;
+      }
+
+
+      .welcome-section {
+            min-height: auto;
+      }
+
+
+      .welcome-content {
+            max-width: 700px;
+      }
+
+
+      .welcome-content h1 {
+            font-size: clamp(46px, 9vw, 64px);
+      }
+
+
+      .register-section {
+            justify-content: flex-start;
+      }
+
+
+      .register-card {
+            max-width: 600px;
+      }
+
+
+      .ring-one,
+      .ring-two {
+            display: none;
+      }
+}
+
+
+@media (max-width: 600px) {
+
+      .topbar {
+            padding: 20px 20px;
+      }
+
+
+      .brand-name {
+            font-size: 13px;
+      }
+
+
+      .top-login {
+            padding: 8px 13px;
+            font-size: 12px;
+      }
+
+
+      .main-container {
+            width: calc(100% - 32px);
+
+            padding-top: 25px;
+      }
+
+
+      .welcome-content h1 {
+            font-size: 43px;
+            letter-spacing: -1.5px;
+      }
+
+
+      .welcome-content>p {
+            font-size: 14px;
+      }
+
+
+      .feature-list {
+            gap: 16px;
+      }
+
+
+      .register-card {
+            padding: 27px 22px;
+            border-radius: 22px;
+      }
+
+
+      .register-card h2 {
+            font-size: 25px;
+      }
+
+
+      .subtitle {
+            margin-left: 0;
+      }
+
+
+      .page-number {
+            display: none;
+      }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+      }
+}

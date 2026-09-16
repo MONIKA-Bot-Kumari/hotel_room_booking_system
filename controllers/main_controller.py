@@ -1,8 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint, redirect, url_for
+
 
 main_bp = Blueprint("main", __name__)
 
 
-@main_bp.route("/")
+@main_bp.route("/", methods=["GET"])
 def home():
-    return "Hotel Room Booking System"
+    return redirect(url_for("auth.register"))
