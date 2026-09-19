@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #273c9b 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #421b8f 0%, transparent 35%),
+        linear-gradient(135deg, #101d63, #17105c, #24105f);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* REGISTRATION CARD */
+
+.register-card {
+    width: 500px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 25px;
+
+    padding: 38px 48px 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    position: relative;
+
+    text-align: left;
+}
+
+
+/* TOP BLUE LINE */
+
+.top-line {
+    width: 65px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #245cff,
+        #4936e8
+    );
+
+    border-radius: 10px;
+
+    margin: 0 auto 25px;
+}
+
+
+/* HOTEL ICON */
+
+.hotel-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #eef1ff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+
+    box-shadow: 0 5px 15px rgba(45, 76, 200, 0.15);
+}
+
+
+/* HEADING */
+
+.register-card h1 {
+    text-align: center;
+
+    color: #183b91;
+
+    font-size: 31px;
+
+    margin-bottom: 7px;
+
+    font-weight: 700;
+}
+
+
+.subtitle {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 15px;
+
+    margin-bottom: 28px;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #263238;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+/* INPUT BOX */
+
+.input-box {
+    width: 100%;
+
+    height: 48px;
+
+    border: 1px solid #d9dce5;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 13px;
+
+    transition: 0.25s;
+}
+
+.input-box:focus-within {
+    border-color: #315bea;
+
+    box-shadow:
+        0 0 0 3px rgba(49, 91, 234, 0.10);
+}
+
+
+.input-icon {
+    width: 30px;
+
+    color: #4058bb;
+
+    font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 5px;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+.input-box input::placeholder {
+    color: #a5a7ad;
+}
+
+
+/* PASSWORD EYE */
+
+.eye-icon {
+    color: #60658a;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    margin-left: 8px;
+}
+
+
+/* REGISTER BUTTON */
+
+.btn-register {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        90deg,
+        #2859e8,
+        #4933df
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(54, 70, 220, 0.25);
+
+    transition: 0.25s;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(54, 70, 220, 0.35);
+}
+
+
+/* LOGIN TEXT */
+
+.login-text {
+    text-align: center;
+
+    margin-top: 21px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #3154c9;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    margin-left: 3px;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* SECURE TEXT */
+
+.secure-text {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #aaa;
+
+    font-size: 11px;
+}
+
+
+/* FLASH MESSAGE */
+
+.message {
+    padding: 10px;
+
+    margin-bottom: 18px;
+
+    border-radius: 7px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+.message.error {
+    background-color: #ffe5e7;
+
+    color: #b4232c;
+}
+
+.message.success {
+    background-color: #e2f7e9;
+
+    color: #19703a;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .register-card {
+        width: 100%;
+
+        padding: 30px 25px;
+    }
+
+    .register-card h1 {
+        font-size: 26px;
+    }
+}

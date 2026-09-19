@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guest Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+
+    <div class="register-card">
+
+        <!-- Top decoration -->
+        <div class="top-line"></div>
+
+        <!-- Hotel icon -->
+        <div class="hotel-icon">
+            🛏
+        </div>
+
+        <h1>Guest Registration</h1>
+
+        <p class="subtitle">
+            Create your account to book hotel rooms
+        </p>
+
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        <!-- Registration Form -->
+        <form id="register-form" method="POST">
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+
+                <div class="input-box">
+                    <span class="input-icon">👤</span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <div class="input-box">
+                    <span class="input-icon">✉</span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <div class="input-box">
+                    <span class="input-icon">🔒</span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                    >
+
+                    <span class="eye-icon">◉</span>
+                </div>
+            </div>
+
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+
+                <div class="input-box">
+                    <span class="input-icon">📱</span>
+
+                    <input
+                        type="text"
+                        id="phone_number"
+                        name="phone_number"
+                        placeholder="Enter your phone number"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Register Button -->
+            <button type="submit" class="btn-register">
+                Register
+            </button>
+
+        </form>
+
+
+        <!-- Login -->
+        <p class="login-text">
+            Already have an account?
+            <a href="/login" id="login-link">
+                Login here
+            </a>
+        </p>
+
+
+        <!-- Bottom text -->
+        <div class="secure-text">
+            🔒 Your information is securely stored
+        </div>
+
+    </div>
+
+</body>
+
+</html>
