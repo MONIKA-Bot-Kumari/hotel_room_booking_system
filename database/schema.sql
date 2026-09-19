@@ -1,3 +1,10 @@
+CREATE DATABASE IF NOT EXISTS hotel_booking;
+
+USE hotel_booking;
+
+
+
+
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -50,3 +57,9 @@ ON DUPLICATE KEY UPDATE
     name = VALUES(name),
     password = VALUES(password),
     role = VALUES(role);
+
+
+    -- your existing default user INSERT statements
+
+ALTER TABLE users
+ADD COLUMN phone_number VARCHAR(20);
